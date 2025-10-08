@@ -4,8 +4,8 @@ import {
   type CompanionCard,
   type Message,
 } from "@aikyo/server";
-import { speakTool } from "../tools/actions/speak";
-import { companionNetworkKnowledge } from "../tools/knowledges/networks";
+import { speakTool } from "../tools/core";
+import { companionNetworkKnowledge } from "../tools/core";
 
 export const companionCard: CompanionCard = {
   metadata: {
