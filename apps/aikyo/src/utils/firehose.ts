@@ -1,11 +1,14 @@
 import { Firehose } from "@aikyo/firehose";
-import { aiTuberKitEmotionSchema, aiTuberKitSendDataSchema, speakDataSchema } from "./types/firehose";
-import type { QueryResult } from "@aikyo/server";
-
+import {
+  aiTuberKitReceiveDataSchema,
+  aiTuberKitSendDataSchema,
+  type Request,
+  speakDataSchema,
+} from "./types/firehose";
 
 export async function createFirehoseServer(
   port: number = 8080,
-  fromName: string = "user",
+  companionName: string,
 ) {
   // Create a new Firehose server
   const firehose = new Firehose(port);
@@ -14,7 +17,7 @@ export async function createFirehoseServer(
   await firehose.subscribe("queries", (data) => {
     // Validate incoming data
     const parsed = speakDataSchema.safeParse(data);
-    if (parsed.success && parsed.data.params.from === fromName) {
+    if (parsed.success && parsed.data.params.from === companionName) {
       const validData = parsed.data;
 
       const transformed = aiTuberKitSendDataSchema.safeParse({
@@ -25,6 +28,7 @@ export async function createFirehoseServer(
         type: "message",
       });
       if (transformed.success) {
+        console.log("id: ", parsed.data.id);
         console.log("Broadcasting transformed data:", transformed.data);
         firehose.broadcastToClients(transformed.data);
       } else {
@@ -35,6 +39,31 @@ export async function createFirehoseServer(
 
   await firehose.subscribe("messages", (data) => {
     firehose.broadcastToClients(data);
+  });
+
+  firehose.setReceiveHandler((data: any) => {
+    // AITuberKitに特化
+    const parsed = aiTuberKitReceiveDataSchema.safeParse(data);
+    if (parsed.success) {
+      console.log("Received valid data:", parsed.data);
+      const response: Request = {
+        topic: "messages",
+        body: {
+          jsonrpc: "2.0",
+          method: "message.send",
+          params: {
+            id: crypto.randomUUID(),
+            from: "user",
+            to: [companionName],
+            message: parsed.data.content,
+          },
+        },
+      };
+      return response;
+    } else {
+      console.error("Failed to parse received data:", parsed.error);
+      throw new Error("Invalid data format");
+    }
   });
   return firehose;
 }
