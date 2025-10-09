@@ -12,14 +12,14 @@ importers:
         specifier: ^2.0.17
         version: 2.0.17(zod@3.25.76)
       '@aikyo/firehose':
-        specifier: ^1.4.1
-        version: 1.4.1(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)
+        specifier: ^1.5.0
+        version: 1.5.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)
       '@aikyo/server':
-        specifier: ^1.4.0
-        version: 1.4.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
+        specifier: ^1.4.1
+        version: 1.4.1(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
       '@aikyo/utils':
-        specifier: ^1.3.1
-        version: 1.3.1(@types/json-schema@7.0.15)(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)
+        specifier: ^1.3.2
+        version: 1.3.2(@types/json-schema@7.0.15)(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)
       '@types/ws':
         specifier: ^8.18.1
         version: 8.18.1
@@ -73,6 +73,12 @@ packages:
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
+  '@ai-sdk/gateway@1.0.34':
+    resolution: {integrity: sha512-Vc/4fGlAW2uGmz6DnbRB9b7kdkbk4DQYNDYNdr/NHJxoaLsdNF3CE8i172rZ47+jEU2hGibcn5yivbgvjMi8Ig==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
   '@ai-sdk/provider-utils@2.2.8':
     resolution: {integrity: sha512-fqhG+4sCVv8x7nFzYnFo19ryhAa3w096Kmc3hWxMQfW/TubPOmt3A6tYZhl4mUfQWWQMsuSkLrtjlWuXBVSGQA==}
     engines: {node: '>=18'}
@@ -105,16 +111,16 @@ packages:
     peerDependencies:
       zod: ^3.23.8
 
-  '@aikyo/firehose@1.4.1':
-    resolution: {integrity: sha512-4P/Mvn6lZ7H46RsJMf1iZIDgQe5pyesuE9uB/LxvJfz3MwNYyRLhy6GEwE8BRHefbLGYN7jwDqHnK5Y1GWXw5g==}
+  '@aikyo/firehose@1.5.0':
+    resolution: {integrity: sha512-YrwtflMP/qKg+lo8i3ja9Q3WMh7cjW1uiyJE/vxyHgSLG5JJ0+mqFpSNrByGyT9q2Ij5ogaMT1HG+mVffRnpew==}
     peerDependencies:
       typescript: ^5
 
-  '@aikyo/server@1.4.0':
-    resolution: {integrity: sha512-9ZqhJmdQSNCW/+kjYJBPx7kraZVcTYb3rzXhuPnQuhoxjKSij7DOTZkkAIIP8RDr2kUXP8a6tJGjsqKnFNBw5A==}
+  '@aikyo/server@1.4.1':
+    resolution: {integrity: sha512-TKtZdA4eF3W5SY7OY/amJjRDEbyhJKSgvorjTuTjD7mKjut8He06eaE9vP4MTUElKkI9ucXGJF/7fswMByQ8kA==}
 
-  '@aikyo/utils@1.3.1':
-    resolution: {integrity: sha512-o2Onbje6albAvKdFinz0p2X3JnjikYyZ35GTbRARbr/l8Wr7O6MnLrEZozs8UAPQGIPVkQQ12Sotf8YmZ7E1Jw==}
+  '@aikyo/utils@1.3.2':
+    resolution: {integrity: sha512-N+5pFEPge4Zg+pU0vrT1DuiEhbwZq6fCd14AiGO89xxc8RdTJ1+GycErMEg3FdM8Xm/n2hJo9qpydqwX03GLMg==}
     peerDependencies:
       typescript: ^5
 
@@ -926,12 +932,11 @@ packages:
     peerDependencies:
       zod: ^3.25.0
 
-  '@mastra/evals@0.13.10':
-    resolution: {integrity: sha512-LdVg5czwjNt2lzlwFt8sUJBcuF7J9v/LL5+bFCGnYQuO+pkyME7pxdZcOVz3M2Zk/2rZSc4Lxd78xwYTMw+x3w==}
+  '@mastra/evals@0.0.0-ai-v5-20250813235735':
+    resolution: {integrity: sha512-DFqw/gbewLG6JZ/dsj/nXH8zM/4SAchAu18MLbj1mHxlW5kc31ogR8x+8XK+9/55EBRDGMl0TX31W8DFhzVCQQ==}
     peerDependencies:
-      '@mastra/core': '>=0.18.1-0 <0.21.0-0'
-      ai: ^4.0.0 || ^5.0.0
-      zod: ^3.25.0 || ^4.0.0
+      '@mastra/core': 0.0.0-ai-v5-20250813235735
+      ai: ^5.0.0
 
   '@mastra/libsql@0.0.0-ai-v5-20250813235735':
     resolution: {integrity: sha512-yz3MKWFQNVwyDg64MlqI7fiXu2f4Yaip9EiD30crfrIIduzp3opRuOkL/wYaDJZawpZZcs2jn6KCzGUN+cdU0Q==}
@@ -1971,6 +1976,10 @@ packages:
     resolution: {integrity: sha512-V/YRVrJDqM6VaMBjRUrd6qRMrTKvZjHdVdEmdXsOZMulTa3iK98ijKTc3wldBmst6W5rHpqMoKllKcBAHgN7GQ==}
     engines: {node: '>= 20'}
 
+  '@vercel/oidc@3.0.2':
+    resolution: {integrity: sha512-JekxQ0RApo4gS4un/iMGsIL1/k4KUBe3HmnGcDvzHuFBdQdudEJgTqcsJC7y6Ul4Yw5CeykgvQbX2XeEJd0+DA==}
+    engines: {node: '>= 20'}
+
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
     engines: {node: '>=6.5'}
@@ -2012,6 +2021,12 @@ packages:
 
   ai@5.0.60:
     resolution: {integrity: sha512-80U/3kmdBW6g+JkLXpz/P2EwkyEaWlPlYtuLUpx/JYK9F7WZh9NnkYoh1KvUi1Sbpo0NyurBTvX0a2AG9mmbDA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
+
+  ai@5.0.61:
+    resolution: {integrity: sha512-a+NtNgxjMiGvL46/+v7iNbKHLAg8VDheNhYFe9lL3MPiL9W5DNH45wMaahteCYS4WgoFgdQa2zz4CM5lkiXuOA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -4335,6 +4350,13 @@ snapshots:
       '@vercel/oidc': 3.0.1
       zod: 3.25.76
 
+  '@ai-sdk/gateway@1.0.34(zod@3.25.76)':
+    dependencies:
+      '@ai-sdk/provider': 2.0.0
+      '@ai-sdk/provider-utils': 3.0.10(zod@3.25.76)
+      '@vercel/oidc': 3.0.2
+      zod: 3.25.76
+
   '@ai-sdk/provider-utils@2.2.8(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
@@ -4371,9 +4393,9 @@ snapshots:
       zod: 3.25.76
       zod-to-json-schema: 3.24.6(zod@3.25.76)
 
-  '@aikyo/firehose@1.4.1(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)':
+  '@aikyo/firehose@1.5.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)':
     dependencies:
-      '@aikyo/server': 1.4.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
+      '@aikyo/server': 1.4.1(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
       '@chainsafe/libp2p-gossipsub': 14.1.2
       '@chainsafe/libp2p-noise': 16.1.5
       '@chainsafe/libp2p-yamux': 7.0.4
@@ -4409,7 +4431,7 @@ snapshots:
       - valibot
       - zod-openapi
 
-  '@aikyo/server@1.4.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))':
+  '@aikyo/server@1.4.1(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 14.1.2
       '@chainsafe/libp2p-noise': 16.1.5
@@ -4419,7 +4441,7 @@ snapshots:
       '@libp2p/mdns': 11.0.47
       '@libp2p/tcp': 10.1.19
       '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
-      '@mastra/evals': 0.13.10(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.47(zod@3.25.76))(zod@3.25.76)
+      '@mastra/evals': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.47(zod@3.25.76))
       '@mastra/libsql': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))
       '@mastra/loggers': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))
       '@mastra/mcp': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(@types/json-schema@7.0.15)(zod@3.25.76)
@@ -4454,13 +4476,58 @@ snapshots:
       - valibot
       - zod-openapi
 
-  '@aikyo/utils@1.3.1(@types/json-schema@7.0.15)(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)':
+  '@aikyo/server@1.4.1(@types/json-schema@7.0.15)(ai@5.0.60(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))':
     dependencies:
-      '@aikyo/server': 1.4.0(@types/json-schema@7.0.15)(ai@5.0.47(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
+      '@chainsafe/libp2p-gossipsub': 14.1.2
+      '@chainsafe/libp2p-noise': 16.1.5
+      '@chainsafe/libp2p-yamux': 7.0.4
+      '@libp2p/identify': 3.0.39
+      '@libp2p/interface': 2.11.0
+      '@libp2p/mdns': 11.0.47
+      '@libp2p/tcp': 10.1.19
+      '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
+      '@mastra/evals': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.60(zod@3.25.76))
+      '@mastra/libsql': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))
+      '@mastra/loggers': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))
+      '@mastra/mcp': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(@types/json-schema@7.0.15)(zod@3.25.76)
+      '@mastra/memory': 0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))
+      cel-js: 0.8.2
+      dotenv: 17.2.3
+      helia: 5.5.1(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
+      libp2p: 2.9.0
+      pino: 10.0.0
+      zod: 3.25.76
+      zod-from-json-schema: 0.0.5
+    transitivePeerDependencies:
+      - '@hono/arktype-validator'
+      - '@hono/effect-validator'
+      - '@hono/typebox-validator'
+      - '@hono/valibot-validator'
+      - '@hono/zod-validator'
+      - '@sinclair/typebox'
+      - '@types/json-schema'
+      - '@valibot/to-json-schema'
+      - ai
+      - arktype
+      - aws-crt
+      - bufferutil
+      - effect
+      - encoding
+      - openapi-types
+      - pg-native
+      - react-native
+      - supports-color
+      - utf-8-validate
+      - valibot
+      - zod-openapi
+
+  '@aikyo/utils@1.3.2(@types/json-schema@7.0.15)(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))(typescript@5.9.3)':
+    dependencies:
+      '@aikyo/server': 1.4.1(@types/json-schema@7.0.15)(ai@5.0.60(zod@3.25.76))(openapi-types@12.1.3)(react-native@0.81.4(@babel/core@7.28.4)(react@19.2.0))
       '@chainsafe/libp2p-gossipsub': 14.1.2
       '@libp2p/identify': 3.0.39
       '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
-      ai: 5.0.47(zod@3.25.76)
+      ai: 5.0.60(zod@3.25.76)
       libp2p: 2.9.0
       pino: 10.0.0
       typescript: 5.9.3
@@ -5416,7 +5483,7 @@ snapshots:
       it-filter: 3.1.4
       it-foreach: 2.1.4
       it-merge: 3.0.12
-      libp2p: 2.9.0
+      libp2p: 2.10.0
       mortice: 3.3.1
       multiformats: 13.4.1
       p-defer: 4.0.1
@@ -6077,7 +6144,7 @@ snapshots:
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.10(zod@3.25.76)
       '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
-      '@mastra/schema-compat': 0.0.0-ai-v5-20250813235735(ai@5.0.60(zod@3.25.76))(zod@3.25.76)
+      '@mastra/schema-compat': 0.0.0-ai-v5-20250813235735(ai@5.0.61(zod@3.25.76))(zod@3.25.76)
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.62.2(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.1.0(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.1.0(@opentelemetry/api@1.9.0)
@@ -6092,7 +6159,7 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.1.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.37.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 5.0.60(zod@3.25.76)
+      ai: 5.0.61(zod@3.25.76)
       cohere-ai: 7.19.0
       date-fns: 3.6.0
       dotenv: 16.6.1
@@ -6124,10 +6191,22 @@ snapshots:
       - valibot
       - zod-openapi
 
-  '@mastra/evals@0.13.10(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.47(zod@3.25.76))(zod@3.25.76)':
+  '@mastra/evals@0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.47(zod@3.25.76))':
     dependencies:
       '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
       ai: 5.0.47(zod@3.25.76)
+      compromise: 14.14.4
+      difflib: 0.2.4
+      fs-extra: 11.3.2
+      keyword-extractor: 0.0.28
+      sentiment: 5.0.2
+      string-similarity: 4.0.4
+      zod: 3.25.76
+
+  '@mastra/evals@0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))(ai@5.0.60(zod@3.25.76))':
+    dependencies:
+      '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
+      ai: 5.0.60(zod@3.25.76)
       compromise: 14.14.4
       difflib: 0.2.4
       fs-extra: 11.3.2
@@ -6168,9 +6247,9 @@ snapshots:
   '@mastra/memory@0.0.0-ai-v5-20250813235735(@mastra/core@0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76))':
     dependencies:
       '@mastra/core': 0.0.0-ai-v5-20250813235735(openapi-types@12.1.3)(zod@3.25.76)
-      '@mastra/schema-compat': 0.0.0-ai-v5-20250813235735(ai@5.0.60(zod@3.25.76))(zod@3.25.76)
+      '@mastra/schema-compat': 0.0.0-ai-v5-20250813235735(ai@5.0.61(zod@3.25.76))(zod@3.25.76)
       '@upstash/redis': 1.35.5
-      ai: 5.0.60(zod@3.25.76)
+      ai: 5.0.61(zod@3.25.76)
       async-mutex: 0.5.0
       js-tiktoken: 1.0.21
       json-schema: 0.4.0
@@ -6184,9 +6263,9 @@ snapshots:
     transitivePeerDependencies:
       - pg-native
 
-  '@mastra/schema-compat@0.0.0-ai-v5-20250813235735(ai@5.0.60(zod@3.25.76))(zod@3.25.76)':
+  '@mastra/schema-compat@0.0.0-ai-v5-20250813235735(ai@5.0.61(zod@3.25.76))(zod@3.25.76)':
     dependencies:
-      ai: 5.0.60(zod@3.25.76)
+      ai: 5.0.61(zod@3.25.76)
       json-schema: 0.4.0
       zod: 3.25.76
       zod-from-json-schema: 0.0.5
@@ -7641,6 +7720,8 @@ snapshots:
 
   '@vercel/oidc@3.0.1': {}
 
+  '@vercel/oidc@3.0.2': {}
+
   abort-controller@3.0.0:
     dependencies:
       event-target-shim: 5.0.1
@@ -7686,6 +7767,14 @@ snapshots:
   ai@5.0.60(zod@3.25.76):
     dependencies:
       '@ai-sdk/gateway': 1.0.33(zod@3.25.76)
+      '@ai-sdk/provider': 2.0.0
+      '@ai-sdk/provider-utils': 3.0.10(zod@3.25.76)
+      '@opentelemetry/api': 1.9.0
+      zod: 3.25.76
+
+  ai@5.0.61(zod@3.25.76):
+    dependencies:
+      '@ai-sdk/gateway': 1.0.34(zod@3.25.76)
       '@ai-sdk/provider': 2.0.0
       '@ai-sdk/provider-utils': 3.0.10(zod@3.25.76)
       '@opentelemetry/api': 1.9.0
@@ -8552,7 +8641,7 @@ snapshots:
       datastore-core: 10.0.4
       interface-datastore: 8.3.2
       ipns: 10.1.2
-      libp2p: 2.9.0
+      libp2p: 2.10.0
       multiformats: 13.4.1
     transitivePeerDependencies:
       - bufferutil
