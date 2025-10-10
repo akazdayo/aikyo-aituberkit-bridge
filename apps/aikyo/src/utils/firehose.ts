@@ -2,7 +2,6 @@ import { Firehose } from "@aikyo/firehose";
 import {
   aiTuberKitReceiveDataSchema,
   aiTuberKitSendDataSchema,
-  type Request,
   speakDataSchema,
 } from "./types/firehose";
 
@@ -41,12 +40,13 @@ export async function createFirehoseServer(
     firehose.broadcastToClients(data);
   });
 
-  firehose.setReceiveHandler((data: any) => {
-    // AITuberKitに特化
+  firehose.setReceiveHandler((data: Record<string, unknown>) => {
     const parsed = aiTuberKitReceiveDataSchema.safeParse(data);
-    if (parsed.success) {
-      console.log("Received valid data:", parsed.data);
-      const response: Request = {
+    if (!parsed.success) throw new Error("Invalid data format");
+    console.log("Received valid data:", parsed.data);
+
+    if ("content" in parsed.data) {
+      return {
         topic: "messages",
         body: {
           jsonrpc: "2.0",
@@ -59,10 +59,11 @@ export async function createFirehoseServer(
           },
         },
       };
-      return response;
     } else {
-      console.error("Failed to parse received data:", parsed.error);
-      throw new Error("Invalid data format");
+      return {
+        topic: "queries",
+        body: parsed.data,
+      };
     }
   });
   return firehose;

@@ -1,4 +1,4 @@
-import { MessageSchema } from "@aikyo/server";
+import { MessageSchema, QueryResultSchema } from "@aikyo/server";
 import { z } from "zod";
 
 export const aiTuberKitEmotionSchema = z.enum([
@@ -46,10 +46,13 @@ export const aiTuberKitSendDataSchema = z.object({
   type: z.literal("message"),
 });
 
-export const aiTuberKitReceiveDataSchema = z.object({
-  content: z.string(),
-  type: z.literal("chat"), // 現状はchatのみらしいw
-});
+export const aiTuberKitReceiveDataSchema = z.union([
+  z.object({
+    content: z.string(),
+    type: z.literal("chat"), // 現状はchatのみらしいw
+  }),
+  QueryResultSchema,
+]);
 
 export const RequestSchema = z.object({
   topic: z.string(),
