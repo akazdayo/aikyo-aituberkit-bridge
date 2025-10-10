@@ -23,6 +23,7 @@ import {
   asyncConvertEnglishToJapaneseReading,
   containsEnglish,
 } from '@/utils/textProcessing'
+import webSocketStore from '@/features/stores/websocketStore'
 
 const speakQueue = SpeakQueue.getInstance()
 
@@ -198,6 +199,7 @@ const createSpeakCharacter = () => {
   let lastTime = 0
   let prevFetchPromise: Promise<unknown> = Promise.resolve()
 
+
   return (
     sessionId: string,
     talk: Talk,
@@ -314,9 +316,20 @@ const createSpeakCharacter = () => {
 
         // Wrap the onComplete passed to speakQueue.addTask
         const guardedOnComplete = () => {
+          const wsManager = webSocketStore.getState().wsManager
           console.log("guardedOnComplete called");
-          if (talk.messageId) {
+          if (talk.messageId && wsManager?.websocket?.readyState === WebSocket.OPEN) {
             console.log("Message ID:", talk.messageId);
+            wsManager.websocket.send(
+              JSON.stringify({
+                jsonrpc: '2.0',
+                id: talk.messageId,
+                result: {
+                  success: true,
+                  body: { success: true },
+                },
+              })
+            )
           }
 
           if (onComplete && !called) {
