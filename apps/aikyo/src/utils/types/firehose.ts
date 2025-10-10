@@ -49,7 +49,7 @@ export const aiTuberKitSendDataSchema = z.object({
 export const aiTuberKitReceiveDataSchema = z.union([
   z.object({
     content: z.string(),
-    type: z.literal("chat"), // 現状はchatのみらしいw
+    type: z.literal("chat"),
   }),
   QueryResultSchema,
 ]);
