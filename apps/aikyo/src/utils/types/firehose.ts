@@ -39,6 +39,7 @@ export const sendMessageSchema = z.object({
 export type SendMessage = z.infer<typeof sendMessageSchema>;
 
 export const aiTuberKitSendDataSchema = z.object({
+  id: z.string(),
   text: z.string(),
   role: z.literal("assistant"),
   emotion: aiTuberKitEmotionSchema.default("neutral"),

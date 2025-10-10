@@ -28,7 +28,7 @@ export async function createFirehoseServer(
         type: "message",
       });
       if (transformed.success) {
-        console.log("id: ", parsed.data.id);
+        console.log("id: ", transformed.data.id);
         console.log("Broadcasting transformed data:", transformed.data);
         firehose.broadcastToClients(transformed.data);
       } else {

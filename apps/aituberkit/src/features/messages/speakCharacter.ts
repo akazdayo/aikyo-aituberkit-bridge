@@ -314,6 +314,11 @@ const createSpeakCharacter = () => {
 
         // Wrap the onComplete passed to speakQueue.addTask
         const guardedOnComplete = () => {
+          console.log("guardedOnComplete called");
+          if (talk.messageId) {
+            console.log("Message ID:", talk.messageId);
+          }
+
           if (onComplete && !called) {
             called = true
             onComplete()

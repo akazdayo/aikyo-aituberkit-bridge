@@ -22,6 +22,7 @@ export type Talk = {
   emotion: EmotionType
   message: string
   buffer?: ArrayBuffer
+  messageId?: string
 }
 
 export const splitSentence = (text: string): string[] => {

@@ -848,7 +848,8 @@ export const handleReceiveTextFromWsFn =
     text: string,
     role?: string,
     emotion: EmotionType = 'neutral',
-    type?: string
+    type?: string,
+    messageId?: string
   ) => {
     const sessionId = generateSessionId()
     if (text === null || role === undefined) return
@@ -903,6 +904,7 @@ export const handleReceiveTextFromWsFn =
             {
               message: text,
               emotion: emotion,
+              messageId: messageId,
             },
             () => {
               // assistantMessage is now derived from chatLog, no need to set it separately
