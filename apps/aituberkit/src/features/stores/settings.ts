@@ -133,6 +133,7 @@ interface Integrations {
   youtubeNoCommentCount: number
   youtubeSleepMode: boolean
   conversationContinuityMode: boolean
+  externalLinkageWebSocketUrl: string
 }
 
 interface Character {
@@ -367,6 +368,9 @@ const getInitialValuesFromEnv = (): SettingsState => ({
   youtubeNoCommentCount: 0,
   youtubeSleepMode: false,
   conversationContinuityMode: false,
+  externalLinkageWebSocketUrl:
+    process.env.NEXT_PUBLIC_EXTERNAL_LINKAGE_WEBSOCKET_URL ||
+    'ws://localhost:8000/ws',
 
   // Character
   characterName: process.env.NEXT_PUBLIC_CHARACTER_NAME || 'CHARACTER',
@@ -626,6 +630,7 @@ const settingsStore = create<SettingsState>()(
       difyUrl: state.difyUrl,
       difyConversationId: state.difyConversationId,
       youtubeLiveId: state.youtubeLiveId,
+      externalLinkageWebSocketUrl: state.externalLinkageWebSocketUrl,
       characterName: state.characterName,
       characterPreset1: state.characterPreset1,
       characterPreset2: state.characterPreset2,

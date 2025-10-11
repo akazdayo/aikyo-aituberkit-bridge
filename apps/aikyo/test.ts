@@ -1,41 +1,32 @@
-import * as readline from "readline";
-import WebSocket, { WebSocketServer } from "ws";
+import WebSocket from 'ws';
 
-const wss = new WebSocketServer({ port: 8000 });
-const clients = new Set<WebSocket>();
+const ws = new WebSocket('ws://localhost:8000');
 
-wss.on("connection", (ws) => {
-  console.log("New client connected");
-  clients.add(ws);
-
-  ws.on("close", () => {
-    console.log("Client disconnected");
-    clients.delete(ws);
-  });
-
-  ws.on("message", (message) => {
-    console.log(`Received message: ${message}`);
-  });
-});
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-rl.on("line", (line) => {
-  console.log(`Broadcasting to ${clients.size} clients: ${line}`);
-  const a = {
-    text: "喋らせたいテキスト",
-    role: "assistant",
-    emotion: "neutral",
-    type: "message",
-  };
-  clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify(a));
+ws.on('open', () => {
+  console.log('Connected to ws://localhost:8000');
+  setInterval(() => {
+    const randomHiragana = Array.from({ length: 10 }, () =>
+      String.fromCharCode(0x3042 + Math.floor(Math.random() * 83))
+    ).join('');
+    const message = {
+      text: randomHiragana,
+      role: 'assistant',
+      emotion: 'neutral',
+      type: 'message',
     }
-  });
+    ws.send(JSON.stringify(message));
+    console.log('Sent:', randomHiragana);
+  }, 1000);
 });
 
-console.log("WebSocket server started on ws://localhost:8000");
+ws.on('message', (data) => {
+  console.log('Received:', data.toString());
+});
+
+ws.on('error', (error) => {
+  console.error('WebSocket error:', error);
+});
+
+ws.on('close', () => {
+  console.log('Connection closed');
+});

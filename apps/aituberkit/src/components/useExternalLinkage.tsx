@@ -28,6 +28,9 @@ interface Params {
 const useExternalLinkage = ({ handleReceiveTextFromWs }: Params) => {
   const { t } = useTranslation()
   const externalLinkageMode = settingsStore((s) => s.externalLinkageMode)
+  const externalLinkageWebSocketUrl = settingsStore(
+    (s) => s.externalLinkageWebSocketUrl
+  )
   const [receivedMessages, setTmpMessages] = useState<TmpMessage[]>([])
 
   const processMessage = useCallback(
@@ -81,7 +84,8 @@ const useExternalLinkage = ({ handleReceiveTextFromWs }: Params) => {
 
     function connectWebsocket() {
       if (wsManager?.isConnected()) return wsManager.websocket
-      return new WebSocket('ws://localhost:8000/ws')
+      const ss = settingsStore.getState()
+      return new WebSocket(ss.externalLinkageWebSocketUrl)
     }
 
     webSocketStore.getState().initializeWebSocket(t, handlers, connectWebsocket)
@@ -107,7 +111,7 @@ const useExternalLinkage = ({ handleReceiveTextFromWs }: Params) => {
       clearInterval(reconnectInterval)
       webSocketStore.getState().disconnect()
     }
-  }, [externalLinkageMode, t])
+  }, [externalLinkageMode, externalLinkageWebSocketUrl, t])
 
   return null
 }
