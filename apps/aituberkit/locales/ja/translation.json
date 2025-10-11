@@ -11,6 +11,8 @@
   "LogSettings": "会話履歴",
   "OtherSettings": "その他",
   "ExternalLinkageMode": "外部連携モード（ベータ版）",
+  "ExternalLinkageWebSocketUrl": "WebSocket接続URL",
+  "ExternalLinkageWebSocketUrlPlaceholder": "例: ws://localhost:8000/ws",
   "YoutubeMode": "YouTubeモード",
   "YoutubeInfo": "先頭が「#」のコメントは無視されます。",
   "YoutubeAPIKey": "YouTube API キー",

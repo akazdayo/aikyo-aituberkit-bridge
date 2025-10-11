@@ -182,6 +182,7 @@ interface General {
   showControlPanel: boolean
   showQuickMenu: boolean
   externalLinkageMode: boolean
+  externalLinkageWebSocketUrl: string
   realtimeAPIMode: boolean
   realtimeAPIModeContentType: RealtimeAPIModeContentType
   realtimeAPIModeVoice: RealtimeAPIModeVoice | RealtimeAPIModeAzureVoice
@@ -418,6 +419,9 @@ const getInitialValuesFromEnv = (): SettingsState => ({
   showControlPanel: process.env.NEXT_PUBLIC_SHOW_CONTROL_PANEL !== 'false',
   showQuickMenu: process.env.NEXT_PUBLIC_SHOW_QUICK_MENU === 'true',
   externalLinkageMode: process.env.NEXT_PUBLIC_EXTERNAL_LINKAGE_MODE === 'true',
+  externalLinkageWebSocketUrl:
+    process.env.NEXT_PUBLIC_EXTERNAL_LINKAGE_WEBSOCKET_URL ||
+    'ws://localhost:8000/ws',
   realtimeAPIMode:
     (process.env.NEXT_PUBLIC_REALTIME_API_MODE === 'true' &&
       ['openai', 'azure'].includes(
@@ -645,6 +649,7 @@ const settingsStore = create<SettingsState>()(
       changeEnglishToJapanese: state.changeEnglishToJapanese,
       includeTimestampInUserMessage: state.includeTimestampInUserMessage,
       externalLinkageMode: state.externalLinkageMode,
+      externalLinkageWebSocketUrl: state.externalLinkageWebSocketUrl,
       realtimeAPIMode: state.realtimeAPIMode,
       realtimeAPIModeContentType: state.realtimeAPIModeContentType,
       realtimeAPIModeVoice: state.realtimeAPIModeVoice,
